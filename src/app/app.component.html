@@ -1,0 +1,48 @@
+<div>
+  <div class="nav">
+    <input type="text" placeholder="Search Data" (input)="filterData($event)" />
+    <button (click)="editClicked()">{{ isEditing ? "Submit" : "Edit" }}</button>
+  </div>
+  <div class="tableContainer">
+    <div class="header">
+      <span class="col col-id">ID <button (click)="sort(0)">{{this.sortAscending[0] ? '↓' :'↑' }}</button></span>
+      <span class="col col-name">NAME <button (click)="sort(1)">{{this.sortAscending[1]? '↓' :'↑' }}</button></span>
+      <span class="col col-email">EMAIL <button (click)="sort(2)">{{this.sortAscending[2] ? '↓' :'↑' }}</button></span>
+      <span class="col col-body">BODY <button (click)="sort(3)">{{this.sortAscending[3] ? '↓' :'↑' }}</button></span>
+    </div>
+    <div class="row" *ngFor="let item of data; let i = index">
+      <form [formGroup]="profileForm[i]">
+        <span class="col col-id">{{ item?.id }}</span>
+        <span class="col col-name">
+          <span *ngIf="!isEditing"> {{ item?.name }}</span>
+          <input
+            *ngIf="isEditing"
+            type="text"
+            formControlName="name"
+          />
+        </span>
+        <span class="col col-email">
+          <span *ngIf="!isEditing"> {{ item?.email }}</span>
+          <input
+            *ngIf="isEditing"
+            type="text"
+            formControlName="email"
+          />
+         </span>
+        <span class="col col-body">
+          <span *ngIf="!isEditing"> {{ item?.body }}</span>
+          <input
+            *ngIf="isEditing"
+            type="text"
+            formControlName="body"
+          />
+          </span>
+      </form>
+    </div>
+    
+  </div>
+  <div class="footer">
+    <button (click)="prevClicked()" [disabled]="currentPage==1">Prev</button>
+    <button (click)="nextClicked()" [disabled]="currentPage>=(fullData?.length/record)">Next</button>
+  </div>
+</div>

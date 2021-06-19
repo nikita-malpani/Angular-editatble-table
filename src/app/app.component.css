@@ -1,0 +1,95 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+}
+.header {
+  font-weight: 700;
+  background-color: lightcoral;
+  color: white;
+  padding: 10px 0;
+}
+.header > span > button {
+  margin-left: 7px;
+}
+.col {
+  display: inline-flex;
+  padding: 0 5px;
+}
+
+.row {
+  padding: 10px 0;
+  background-color: beige;
+}
+.row:nth-child(2n) {
+  background-color: bisque;
+}
+
+.row input {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  background-color: beige;
+  border: 0px;
+  border-radius: 3px;
+  border-bottom: 1px solid;
+  outline: none;
+}
+
+.row:nth-child(2n) input {
+  background-color: bisque;
+}
+
+.col-id {
+  width: 3%;
+  padding-left: 15px;
+}
+
+.col-name {
+  width: 27%;
+}
+
+.col-email {
+  width: 15%;
+}
+.col-body {
+  width: 50%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.footer > button {
+  width: 120px;
+  padding: 10px;
+  background-color: lightcoral;
+  color: white;
+  font-size: 16px;
+}
+
+.nav {
+  display: flex;
+  padding: 0 20px;
+  justify-content: center;
+}
+.nav > input {
+  width: 300px;
+  padding: 5px 10px;
+  font-size: 16px;
+  margin: 0 20px;
+}
+
+.nav > button {
+  width: 120px;
+  padding: 10px;
+  background-color: lightcoral;
+  color: white;
+  font-size: 16px;
+}
+.footer > button:disabled,
+.nav > button:disabled {
+  background-color: darkgrey;
+  cursor: not-allowed;
+}
